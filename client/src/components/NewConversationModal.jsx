@@ -1,7 +1,11 @@
-function NewConversationModal() {
+import { Modal } from "react-bootstrap";
+
+function NewConversationModal({ closeModal }) {
   return (
-    <div>NewConversationModal</div>
-  )
+    <Modal.Header>
+      <button onClick={closeModal}>Conversational model</button>
+    </Modal.Header>
+  );
 }
 
-export default NewConversationModal
+export default NewConversationModal;

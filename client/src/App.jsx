@@ -5,7 +5,6 @@ import { signInWithPopup } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Dashboard from "./components/Dashboard";
 import Cookies from "universal-cookie";
-import { useState } from "react";
 
 const cookies = new Cookies();
 const style = {
@@ -18,13 +17,11 @@ const style = {
 function App() {
   // checking if user is signed in or not
   const [user] = useAuthState(auth);
-  const [result, setResult] = useState('');
 
   const signInWithGoogle = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
       cookies.set("auth-token", result.user.uid);
-      setResult(result);
     } catch (error) {
       console.log(error.message);
     }
@@ -44,7 +41,7 @@ function App() {
         {user ? (
           <>
             {/*if user is signed in then show the navbar and pass the user as props */}
-            <Dashboard result={result} />
+            <Dashboard />
           </>
         ) : (
           <SignIn />

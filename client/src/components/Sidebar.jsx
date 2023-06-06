@@ -9,9 +9,16 @@ import NewContactModal from "./NewContactModal";
 const conversations = "conversations";
 const contacts = "contacts";
 
-function Sidebar({id}) {
+function Sidebar() {
   const [activeKey, setActiveKey] = useState(conversations);
+
+  const [modalOpen, setModalOpen] = useState(false);
+
   const conversationsOpen = activeKey === conversations;
+
+function closeModal(){
+    setModalOpen(false);
+}
 
   return (
     // create a sidebar with two tabs conversations and contacts using tailwind css
@@ -34,14 +41,14 @@ function Sidebar({id}) {
           </Tab.Pane>
         </Tab.Content>
         <div className="p-2 border-top border-right small text-white">
-            <span>{id}</span>
+            <span>id</span>
         </div>
-        <button className="btn bg-white hover:bg-gray text-lg btn-sm rounded-0">
+        <button onClick={()=>setModalOpen(true)} className="btn bg-white hover:bg-gray text-lg btn-sm rounded-0">
             New {conversationsOpen ? "Conversation" : "Contact"}
         </button>
       </Tab.Container>
-      <Modal>
-        {conversationsOpen ? <NewConversationModal /> : <NewContactModal/>}
+      <Modal show={modalOpen} onHide ={closeModal}>
+        {conversationsOpen ? <NewConversationModal closeModal={closeModal}/> : <NewContactModal closeModal={closeModal}/>}
       </Modal>
     </div>
   );
