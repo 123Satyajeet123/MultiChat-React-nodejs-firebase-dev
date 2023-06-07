@@ -7,7 +7,7 @@ import Chatroom from "./Chatroom";
 //};
 function Dashboard() {
   return (
-    <div className="d-flex h-[100vh]">
+    <div className="d-flex flex-col h-[100vh]">
       <Navbar />
       <Sidebar />
       <Chatroom/>
