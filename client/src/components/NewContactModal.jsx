@@ -1,10 +1,7 @@
 import { Modal, Form, Button } from "react-bootstrap";
 import { db } from "../firebase";
 import { useState } from "react";
-import {
-  collection,
-  addDoc,
-} from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
 
 // eslint-disable-next-line react/prop-types
 function NewContactModal({ closeModal }) {
