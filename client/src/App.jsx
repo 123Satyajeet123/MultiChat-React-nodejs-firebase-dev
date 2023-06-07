@@ -9,7 +9,7 @@ import Cookies from "universal-cookie";
 const cookies = new Cookies();
 const style = {
   appContainer: `flex items-center justify-center h-screen text-center bg-dark-gray`,
-  sectionContainer: `flex flex-col items-center justify-center h-[90vh] w-[150vh] bg-gray mt-6 shadow-xl border relative rounded-xl`,
+  sectionContainer: `flex flex-col items-center justify-center h-[90vh] w-[150vh] bg-dark-gray mt-6 shadow-xl border relative rounded-xl`,
   SignIn: `flex flex-col items-center justify-center h-[80vh] w-[60vh] bg-white shadow-xl border relative rounded-xl z-10 -mt-6`,
   button: `bg-dark-gray text-white p-2 rounded-xl shadow-xl hover:bg-gray hover:text-blue hover:shadow-20 cursor-pointer`,
 };

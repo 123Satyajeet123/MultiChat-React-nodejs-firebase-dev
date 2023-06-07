@@ -31,6 +31,10 @@ function NewConversationModal({ closeModal }) {
       unsubscribe();
     };
   }, []);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    closeModal();
+  };
 
   return (
     <>
@@ -38,7 +42,7 @@ function NewConversationModal({ closeModal }) {
         <button onClick={closeModal}>Conversational model</button>
       </Modal.Header>
       <Modal.Body>
-        <form>
+        <form onSubmit={handleSubmit}>
           {contacts.map((data) => (
             <div key={data.id} className="flex justify-center text-center">
               <input type="checkbox" />
