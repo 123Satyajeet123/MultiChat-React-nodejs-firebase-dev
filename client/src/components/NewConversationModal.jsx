@@ -10,7 +10,9 @@ import {
   onSnapshot,
   doc,
   getDoc,
-  setDoc
+  setDoc,
+  updateDoc,
+  serverTimestamp,
 } from "firebase/firestore";
 //import { Form } from "react-bootstrap";
 
@@ -65,9 +67,36 @@ function NewConversationModal({ closeModal }) {
       if (!docSnap.exists()) {
         await setDoc(docRef, { messages: [] });
         console.log("Document written successfully!");
-      } 
 
-      closeModal();
+        //userChats
+        try {
+          await setDoc(doc(db, "userChats", currentUser.uid), {
+            [combinedId + ".userInfo"]: {
+              uid: user.id,
+              displayName: user.name,
+            },
+            [combinedId + ".date"]: serverTimestamp(),
+          });
+          console.log("Document written successfully!");
+        } catch (error) {
+          console.log("Error adding document: ", error);
+        }
+        try {
+          await setDoc(doc(db, "userChats", user.id), {
+            [combinedId + ".userInfo"]: {
+              uid: currentUser.uid,
+              displayName: currentUser.name,
+            },
+            [combinedId + ".date"]: serverTimestamp(),
+          });
+          console.log("Document written successfully!");
+          
+        } catch (error) {
+          console.log("Error adding document: ", error);
+        }
+
+        closeModal();
+      }
     } catch (error) {
       console.log("Error adding document: ", error);
     }
