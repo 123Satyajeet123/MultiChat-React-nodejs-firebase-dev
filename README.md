@@ -1,8 +1,9 @@
 # MultiChat App - React, Node.js, Firebase
 
-![MultiChat](images/multichat.png)
-
-Welcome to the MultiChat App! This project is a real-time multi-user chat application built using React for the frontend, Node.js for the backend, and Firebase for the authentication system. The app uses Socket.IO to handle real-time communication between users in different chat rooms.
+<p align="center">
+  <img src="https://github.com/123Satyajeet123/MultiChat-React-nodejs-firebase-dev/assets/103361055/37a8341b-7af5-44eb-9055-b25a2976b0e0" alt="logo image">
+</p>
+This project is a real-time multi-user chat application built using React for the frontend, Node.js for the backend, and Firebase for the authentication system. The app uses Socket.IO to handle real-time communication between users in different chat rooms.
 
 ## Description
 
